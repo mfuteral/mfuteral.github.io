@@ -21,6 +21,7 @@ author: Matthieu Futeral
 
 navbar-links:
   Publications: "publications"
+  Resume: "resume"
   #About Me: "aboutme"
   #Resources:
   #  - Beautiful Jekyll: "https://beautifuljekyll.com"
