@@ -6,7 +6,7 @@ title: Publications
 - **Tackling Ambiguity with Images: Improved Multimodal Machine Translation and Contrastive Evaluation**  
   **Matthieu Futeral**, Cordelia Schmid, Ivan Laptev, Benoît Sagot, Rachel Bawden  
   *arXiv preprint 2022*  
-  [Paper](https://arxiv.org/pdf/2212.10140.pdf)
+  [Paper](https://arxiv.org/pdf/2212.10140.pdf) &nbsp; &nbsp;
   [Code](https://github.com/MatthieuFP/CoMMuTE)
 
 - **Building a User-Generated Content North-African Arabizi Treebank: Tackling Hell**  
