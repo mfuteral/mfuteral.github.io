@@ -357,7 +357,7 @@ img {
   display: none;
 }
 
-@media (min-width: 2400px) {
+@media (min-width: 2000px) {
   .navbar-custom.top-nav-regular .avatar-container {
     width: 12rem;
     bottom: -3.9375rem;
