@@ -130,15 +130,15 @@ keywords: "NLP,PhD student,multimodal,machine translation,Computer Vision,deep l
 
 # Personalize the colours in your website. Colour values can be any valid CSS colour
 
-navbar-col: "#ade8f4"
+navbar-col: "#EAEAEA"
 navbar-text-col: "#404040"
 navbar-border-col: "#DDDDDD"
 page-col: "#FFFFFF"
 text-col: "#404040"
 link-col: "#008AFF"
 hover-col: "#0085A1"
-footer-col: "#ade8f4"
-footer-text-col: "#404040" # 777777
+footer-col: "#EAEAEA"
+footer-text-col: "#777777" # 777777
 footer-link-col: "#404040"
 footer-hover-col: "#0085A1"
 
