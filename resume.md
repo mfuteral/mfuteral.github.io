@@ -1,1 +1,10 @@
+---
+layout: page
+title: Resume
+---
 
+<div id="pdf" style="height: 800px;"></div>
+<script src="/js/pdfobject.min.js"></script>
+<script>
+PDFObject.embed("https://mfuteral.github.io/Resume_MatthieuFuteral.pdf", "#pdf");
+</script>
