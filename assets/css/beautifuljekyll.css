@@ -675,11 +675,11 @@ nav.top-nav-short-permanent ~ header > .intro-header.big-img {
   text-shadow: 1px 1px 3px #000;
 }
 .intro-header .page-heading h1 {
-  margin-top: 0;
+  margin-top: 2.5rem;
   font-size: 2.325rem; /* 3.125rem  /*
 }
 .intro-header .post-heading h1 {
-  margin-top: 0;
+  margin-top: 2.5rem;
   font-size: 2.1875rem;
 }
 .intro-header .page-heading .page-subheading,
@@ -729,10 +729,10 @@ nav.top-nav-short-permanent ~ header > .intro-header.big-img {
     padding: 9.375rem 0;
   }
   .intro-header .page-heading h1 {
-    font-size: 5rem;
+    font-size: 3rem;
   }
   .intro-header .post-heading h1 {
-    font-size: 3.125rem;
+    font-size: 3rem;
   }
   .intro-header.big-img .img-desc {
     font-size: 0.875rem;
