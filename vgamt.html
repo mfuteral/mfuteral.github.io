@@ -116,17 +116,18 @@ One of the major challenges of machine translation (MT) is ambiguity, which can 
 <h3 style="clear:both">Method: Visually Guided and Adapted Machine Translation system (VGAMT)</h3>
 <div class="row">
     <p>
-      1. The robot collects random interaction data, to be used for training a representation and as off-policy data for RL.
+      1. Exploiting large-scale text-only parallel corpus and English-only captioning data <br>
+      To...
     </p>
     <p>
       <center>
-        <img src="img/method_step1.png" height="140px" />
+        <img src="images/main_fig_bix_times_six.pdf" height="240px" />
       </center>
     </p>
 </div>
 <div class="row">
     <p>
-      3. At training time, the robot learns a policy with RL to minimize the latent distance to a generated goal.
+      2. Guided self-attention: effective exploitation of visual features into MT systems.
     </p>
     <p>
       <center>
@@ -141,11 +142,13 @@ One of the major challenges of machine translation (MT) is ambiguity, which can 
 
 <h3 style="clear:both">Contrastive Multilingual Multimodal Translation Evaluation dataset (CoMMuTE)</h3>
 <p style="padding-left: 10px; padding-right: 10px;">
-  <center>
+  <!-- <center>
     <!-- <iframe src="https://drive.google.com/file/d/1Wj4oqLVLk2Lix2IGD0yP5avBKZGIZMfg/preview" width="640" height="480"></iframe> -->
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/Cqp_phACou0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </center>
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/Cqp_phACou0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+  </center> -->
 </p>
+
+<h3 style="clear:both">Examples</h3>
 
 <!--<h3 style="clear:both">Code</h3>
 <p style="padding-left: 10px; padding-right: 10px;">
@@ -162,7 +165,7 @@ Our contrastive evaluation dataset CoMMuTE is available at this <a href="https:/
 <code>
   @article{vgamt, <br />
 &nbsp;&nbsp;author&nbsp;&nbsp;&nbsp;&nbsp;= {Futeral, Matthieu and Schmid, Cordelia and Laptev, Ivan and Sagot, Benoît and Bawden, Rachel}, <br />
-&nbsp;&nbsp;title&nbsp;&nbsp;&nbsp;&nbsp;= {Tackling Ambiguity with Images: Improved Multimodal Machine Translation and Contrastive Evaluation}, <br />
+&nbsp;&nbsp;title&nbsp;&nbsp;&nbsp;= {Tackling Ambiguity with Images: Improved Multimodal Machine Translation and Contrastive Evaluation}, <br />
 &nbsp;&nbsp;publisher&nbsp;= {arXiv}, <br />
 &nbsp;&nbsp;year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= {2022} <br />
   }
