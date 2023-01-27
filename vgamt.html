@@ -19,7 +19,7 @@ title: Tackling Ambiguity with Images: Improved Multimodal Machine Translation a
 <head>
 <link rel="StyleSheet" href="style.css" type="text/css" media="all" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Contextual Imagined Goals</title>
+<title>VGAMT</title>
 <style type="text/css">
 #primarycontent h1 {
   font-variant: small-caps;
@@ -97,37 +97,41 @@ title: Tackling Ambiguity with Images: Improved Multimodal Machine Translation a
 </head>
 <body>
 <div id="primarycontent">
-<h1 align="center" itemprop="name"><strong>Contextual Imagined Goals for <br /> Self-Supervised Robotic Learning</strong></h1>
+<h1 align="center" itemprop="name"><strong>Tackling Ambiguity with Images:<br/> Improved Multimodal Machine Translation and Contrastive Evaluation</strong></h1>
 
 <center>
 <ul id="people" itemprop="accountablePerson">
   <li><h4>
-        <a href="http://ashvin.me/">Ashvin Nair*</a>,
-        <a href="">Shikhar Bahl*</a>,
-        <a href="">Alexander Khazatsky*</a>,
-        <a href="">Vitchyr Pong</a>,
-        <a href="">Glen Berseth</a>,
-        <a href="http://homes.cs.washington.edu/~svlevine/">Sergey Levine</a></h4></li>
-  <li>University of California, Berkeley</li>
-  <li>*Equal Contribution</li>
+        <a href="https://mfuteral.github.io/">Matthieu Futeral1,2</a>,
+        <a href="https://www.di.ens.fr/willow/people_webpages/cordelia/">Cordelia Schmid1,2</a>,
+        <a href="https://www.di.ens.fr/~laptev/">Ivan Laptev1,2</a>,
+        <a href="https://pauillac.inria.fr/~sagot/">Benoît Sagot1</a>,
+        <a href="https://rbawden.github.io/">Rachel Bawden1</a></h4></li>
+  <li>Inria Paris</li>
+  <li>Département d’informatique de l’ENS, CNRS, PSL Research University</li>
   <br />
   <li>
-      <a href="http://arxiv.org/abs/1910.11670">paper</a> /
-      <a href="https://github.com/anair13/rlkit/tree/ccrig/examples/ccrig">code</a> /
-      <a href="https://github.com/vitchyr/multiworld">envs</a> /
-      <a href="https://drive.google.com/file/d/1xwbWOjX9e1M5ZCMBp5PMz0WHgUJ1qJNm/view?usp=sharing">data</a>
+      <a href="https://arxiv.org/pdf/2212.10140.pdf">paper</a> /
+      <!-- <a href="https://github.com/anair13/rlkit/tree/ccrig/examples/ccrig">code</a> / -->
+      <a href="https://github.com/MatthieuFP/CoMMuTE">data</a>
   </li>
 </ul>
 </center>
 
 <h3 style="clear:both">Abstract</h3>
 <p style="padding-left: 10px; padding-right: 10px;">
-While reinforcement learning provides an appealing formalism for learning individual skills, a general-purpose robotic system must be able to master an extensive repertoire of behaviors. Instead of learning a large collection of skills individually, can we instead enable a robot to propose and practice its own behaviors automatically, learning about the affordances and behaviors that it can perform in its environment, such that it can then repurpose this knowledge once a new task is commanded by the user? In this paper, we study this question in the context of self-supervised goal-conditioned reinforcement learning. A central challenge in this learning regime is the problem of goal setting: in order to practice useful skills, the robot must be able to autonomously set goals that are feasible but diverse. When the robot's environment and available objects vary, as they do in most open-world settings, the robot must propose to itself only those goals that it can accomplish in its present setting with the objects that are at hand. Previous work only studies self-supervised goal-conditioned RL in a single-environment setting, where goal proposals come from the robot's past experience or a generative model are sufficient. In more diverse settings, this frequently leads to impossible goals and, as we show experimentally, prevents effective learning. We propose a conditional goal-setting model that aims to propose goals that are feasible from the robot's current state. We demonstrate that this enables self-supervised goal-conditioned off-policy learning with raw image observations in the real world, enabling a robot to manipulate a variety of objects and generalize to new objects that were not seen during training.
+One of the major challenges of machine translation (MT) is ambiguity, which can in some cases be resolved by accompanying context such as images. 
+  However, recent work in multimodal MT (MMT) has shown that obtaining improvements from images is challenging, 
+  limited not only by the difficulty of building effective cross-modal representations, but also by the lack of specific evaluation and training data.
+  We present a new MMT approach based on a strong text-only MT model, which uses neural adapters, a novel guided self-attention mechanism and which is 
+  jointly trained on both visually-conditioned masking and MMT. We also introduce CoMMuTE, a Contrastive Multilingual Multimodal Translation Evaluation 
+  set of ambiguous sentences and their possible translations, accompanied by disambiguating images corresponding to each translation. Our approach obtains
+  competitive results compared to strong text-only models on standard English&#8594;French, English&#8594;German and English&#8594;Czech benchmarks 
+  and outperforms baselines and state-of-the-art MMT systems by a large margin on our contrastive test set.
 </p>
 
-<h3 style="clear:both">Method</h3>
+<h3 style="clear:both">Method: Visually Guided and Adapted Machine Translation system (VGAMT)</h3>
 <div class="row">
-  <div class="column">
     <p>
       1. The robot collects random interaction data, to be used for training a representation and as off-policy data for RL.
     </p>
@@ -136,20 +140,8 @@ While reinforcement learning provides an appealing formalism for learning indivi
         <img src="img/method_step1.png" height="140px" />
       </center>
     </p>
-  </div>
-  <div class="column">
-    <p>
-      2. We train a context-conditioned VAE on the data, which disentangles context that stays constant during a rollout.
-    </p>
-    <p>
-      <center>
-        <img src="img/cc_vae.png" height="140px" />
-      </center>
-    </p>
-  </div>
 </div>
 <div class="row">
-  <div class="column">
     <p>
       3. At training time, the robot learns a policy with RL to minimize the latent distance to a generated goal.
     </p>
@@ -161,29 +153,10 @@ While reinforcement learning provides an appealing formalism for learning indivi
         <iframe width="380" height="300" src="https://www.youtube.com/embed/EnTiwiX8Xz8?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </center>
     </p>
-  </div>
-  <div class="column">
-    <p>
-      4. At test time, the robot is provided a goal image and executes the policy to reach the goal image.
-    </p>
-    <p>
-      <center>
-        <!-- <figure> -->
-          <!-- <img src="img/robot_test.png" height="140px"> -->
-        <!-- </figure> -->
-        <iframe width="380" height="300" src="https://www.youtube.com/embed/tb1C4JYqorQ?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </center>
-    </p>
-  </div>
 </div>
 
-<!--p style="padding-left: 10px; padding-right: 10px;">
-  <center>
-    <img src="img/fig1.png" width="800px" />
-  </center>
-</p>-->
 
-<h3 style="clear:both">Video</h3>
+<h3 style="clear:both">Contrastive Multilingual Multimodal Translation Evaluation dataset (CoMMuTE)</h3>
 <p style="padding-left: 10px; padding-right: 10px;">
   <center>
     <!-- <iframe src="https://drive.google.com/file/d/1Wj4oqLVLk2Lix2IGD0yP5avBKZGIZMfg/preview" width="640" height="480"></iframe> -->
@@ -254,7 +227,7 @@ While reinforcement learning provides an appealing formalism for learning indivi
     </p>
   </div>
 </div>
-<div class="row">
+<!-- <div class="row">
   <div class="column">
     <p>
       <center>
@@ -277,31 +250,26 @@ While reinforcement learning provides an appealing formalism for learning indivi
       </center>
     </p>
   </div>
-</div>
+</div>-->
 
-<h3 style="clear:both">Paper</h3>
-<p style="padding-left: 10px; padding-right: 10px;">
-Preprint can be accessed on <a href="http://arxiv.org/abs/1910.11670">arXiv</a>.
-</p>
-
-<h3 style="clear:both">Code</h3>
+<!--<h3 style="clear:both">Code</h3>
 <p style="padding-left: 10px; padding-right: 10px;">
 The visually diverse environments are available at <a href="https://github.com/vitchyr/multiworld">github.com/vitchyr/multiworld</a>. Algorithm code is available at <a href="https://github.com/anair13/rlkit/tree/ccrig/examples/ccrig">github.com/anair13/rlkit/tree/ccrig/examples/ccrig</a>.
-</p>
+</p>-->
 
 <h3 style="clear:both">Data</h3>
 <p style="padding-left: 10px; padding-right: 10px;">
-Our real-world pushing data is available at this <a href="https://drive.google.com/file/d/1xwbWOjX9e1M5ZCMBp5PMz0WHgUJ1qJNm/view?usp=sharing">link</a>. There is a notebook inside with example loading code. It contains 20 objects - 88,000 transitions (about 5 hours) of data.
+Our contrastive evaluation dataset CoMMuTE is available at this <a href="https://github.com/MatthieuFP/CoMMuTE">link</a>.
 </p>
 
 <h3 style="clear:both">Citation</h3>
 <p style="padding-left: 10px; padding-right: 10px;">
 <code>
-  @inproceedings{nair19ccrig, <br />
-&nbsp;&nbsp;&nbsp;&nbsp;author&nbsp;&nbsp;&nbsp;&nbsp;= {A. Nair and S. Bahl and A. Khazatsky and V. Pong and G. Berseth and S. Levine}, <br />
-&nbsp;&nbsp;&nbsp;&nbsp;title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= {Contextual Imagined Goals for Self-Supervised Robotic Learning}, <br />
-&nbsp;&nbsp;&nbsp;&nbsp;booktitle&nbsp;= {Conference on Robot Learning (CoRL)}, <br />
-&nbsp;&nbsp;&nbsp;&nbsp;year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= {2019} <br />
+  @article{vgamt, <br />
+&nbsp;&nbsp;&nbsp;&nbsp;author&nbsp;&nbsp;&nbsp;&nbsp;= {Futeral, Matthieu and Schmid, Cordelia and Laptev, Ivan and Sagot, Benoît and Bawden, Rachel}, <br />
+&nbsp;&nbsp;&nbsp;&nbsp;title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= {Tackling Ambiguity with Images: Improved Multimodal Machine Translation and Contrastive Evaluation}, <br />
+&nbsp;&nbsp;&nbsp;&nbsp;publisher&nbsp;= {arXiv}, <br />
+&nbsp;&nbsp;&nbsp;&nbsp;year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= {2022} <br />
   }
 </code>
 </p>
@@ -314,10 +282,6 @@ Our real-world pushing data is available at this <a href="https://drive.google.c
 The template for this website has been adopted from Carl Doersch.
 </p> -->
 
-<!-- <h3 style="clear:both">Contact</h3>
-<p style="padding-left: 10px; padding-right: 10px;">
-For comments/questions, contact <a href="ashvin.me">Ashvin Nair</a></p>
-</div> -->
 
 </body>
 </html>
