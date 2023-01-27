@@ -117,7 +117,8 @@ One of the major challenges of machine translation (MT) is ambiguity, which can 
 <div class="row">
     <p>
       1. Exploiting large-scale text-only parallel corpus and English-only captioning data <br>
-      To...
+      Multimodal parallel datasets are expensive to obtain as it requires a sentence, its translation and an additional image. MMT models are therefore trained on a few amount of data and performs poorly in comprison to state-of-the-art MT systems.
+      Here, we propose to exploit the large amount of existing text-only parallel data by adapting a frozen MT model to multimodal inputs. We additionally train VGAMT on visually conditioned masked language modeling (VMLM) and English captioning data to increase the number of text-image in the training.
     </p>
     <p>
       <center>
