@@ -143,6 +143,8 @@ One of the major challenges of machine translation (MT) is ambiguity, which can 
 
 <h3 style="clear:both">Contrastive Multilingual Multimodal Translation Evaluation dataset (CoMMuTE)</h3>
 <p style="padding-left: 10px; padding-right: 10px;">
+  Traditional MMT benchmarks contain only a handful ambiguous examples where images are necessary to produce accurate translation of the source sentence. To handle this, we introduce CoMMuTE, a contrastive evaluation dataset, composed of ambiguous examples accompanied with images and two translations: a correct one and an incorrect one.
+  The additional image determines which translation is the correct one. Models are asked to rank translations based on the source sentence and the image.
   <center>
     <!-- <iframe src="https://drive.google.com/file/d/1Wj4oqLVLk2Lix2IGD0yP5avBKZGIZMfg/preview" width="640" height="480"></iframe> -->
     <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/Cqp_phACou0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
