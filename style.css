@@ -35,8 +35,8 @@ body {
 }
 
 #primarycontent {
-  max-width: 800px;
-  width: expression(document.body.clientWidth > 800? "800px": "auto" );
+  max-width: 1000px;
+  width: expression(document.body.clientWidth > 1000? "1000px": "auto" );
   text-align: left;
   margin-left: auto;
   margin-right: auto;
