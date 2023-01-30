@@ -65,6 +65,7 @@ p.footer {
   text-align: right;
   width: 50px;
   display: inline-block;
+  padding: 20px;
 }
 
 .c-mid{
@@ -75,7 +76,7 @@ p.footer {
 
 .c-right{
   text-align: left;
-  width: 50px;
+  width: 300px;
   display: inline-block;
 }
 
