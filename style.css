@@ -61,6 +61,24 @@ p.footer {
   }
 }
 
+.c-left{
+  text-align: right;
+  width: 50px;
+  display: inline-block;
+}
+
+.c-mid{
+  text-align: center;
+  width: 10px;
+  display: inline-block;
+}
+
+.c-right{
+  text-align: left;
+  width: 50px;
+  display: inline-block;
+}
+
 #primarycontent h3{
 	border-bottom: 1px solid darkgray;
 	text-align: left;
