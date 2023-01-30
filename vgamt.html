@@ -130,14 +130,26 @@ One of the major challenges of machine translation (MT) is ambiguity, which can 
     <p>
       <b>2. Guided self-attention: effective exploitation of visual features into MT systems.</b> <br><br>
     </p>
-    <p>
+  </div>
+  <div class="row">
+    <div class="column">
+       <p>
+       Instead of using full self-attention (connections between all image parts and all text tokens), 
+         we introduce guided self-attention. Guided self-attention consists in masking irrelevant connections between text and image representations; 
+         each text (resp. image) embedding can attend to itself and all other text (resp. image) positions, but can only attend to image (resp. text) 
+         positions conditioned on pre-extracted text-image alignments. We obtain these alignments (in the form of a cross-modal correspondence matrix) 
+         using MDETR (Kamath et al., 2021), which detects image regions and corresponding text spans based on a free-form text. 
+         The main advantage of guided self-attention over full self-attention is that the model does not have to learn to ignore irrelevant text-image 
+         correspondences since alignments are introduced as a prior.
+       </p>
+    </div>
+    <div class="column">
       <center>
-        <!-- <figure> -->
-          <!-- <img src="img/example_glasses.jpg" height="140px"> -->
-        <!-- </figure> -->
-        <!-- <iframe width="380" height="300" src="https://www.youtube.com/embed/EnTiwiX8Xz8?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+      <p>
+        <img src="images/mdetr_fig_new.jpg", height="230px" />
+      </p>
       </center>
-    </p>
+    </div>
 </div>
 
 
